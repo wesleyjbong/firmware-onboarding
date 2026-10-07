@@ -23,7 +23,8 @@ void loop()
     // Code here!
     BMESPIInterface& SPIInterface = BMESPIInterfaceInstance::instance();
     float temp = SPIInterface.update();
-    unsigned long newInterval = (85-temp)*10 - 80; // Calculate new interval based on temperature
+     // Calculate new interval based on temperature
+    unsigned long newInterval = map((long)temp, BMEConstants::minTemp, BMEConstants::maxTemp, BMEConstants::minTempInterval, BMEConstants::maxTempInterval);
     myLED.setSpeed(newInterval);
     myLED.update();
 }

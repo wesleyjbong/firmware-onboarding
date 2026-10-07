@@ -1,3 +1,4 @@
+#pragma once
 #include <Arduino.h>
 
 class LEDController
@@ -11,5 +12,5 @@ private:
     int pin;
     unsigned long lastToggleTime;
     bool ledState;
-    unsigned long interval; // Speed control variable
+    unsigned long interval;
 };

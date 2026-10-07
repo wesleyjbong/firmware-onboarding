@@ -1,8 +1,6 @@
 #include "LEDController.h"
 #include <Arduino.h>
 
-
-// Constructor initializes the pin and starting speed
 LEDController::LEDController(int pinNum, unsigned long startDelay) {
     pin = pinNum;
     interval = startDelay;
@@ -13,7 +11,7 @@ void LEDController::start() {
     pinMode(pin, OUTPUT);
     digitalWrite(pin, ledState);
 }
-// Call this repeatedly in the main loop
+
 void LEDController::update() {
     unsigned long currentMillis = millis();
     
@@ -24,7 +22,7 @@ void LEDController::update() {
         digitalWrite(pin, ledState);
     }
 }
-// Public method to dynamically change the blink speed
+// Public method to set the interval between LED blinks
 void LEDController::setSpeed(unsigned long newInterval) {
     interval = newInterval;
 }
